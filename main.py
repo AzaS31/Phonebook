@@ -15,8 +15,11 @@ def save_contacts(contacts):
 
 # Загрузка контактов
 def load_contacts():
+    try:
         with open("contacts.json", "r", encoding="utf-8") as f:
             return json.load(f)
+    except FileNotFoundError:
+        return {}
 
 # Функция для добавления контактов
 def add_contact(contacts):
